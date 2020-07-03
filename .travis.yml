@@ -1,0 +1,50 @@
+sudo: false
+language:
+  - ruby
+dist:
+  - xenial
+cache:
+  bundler: true
+  directories:
+    - node_modules
+  yarn: true
+rvm:
+  - 2.6.5
+services:
+  - postgresql
+addons:
+  postgresql: "9.6"
+notifications:
+  - false
+before_install:
+  - sudo apt-get update  
+before_script:  
+  - cp config/database.yml.travis config/database.yml
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
+  - RAILS_ENV=test bundle exec rake db:create
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+install:
+  - bundle install
+  - nvm install node
+  - node -v
+  - npm i -g yarn
+  - yarn
+script:
+  - bundle exec rails webpacker:install
+  - bundle exec rails webpacker:compile
+  - bundle exec rspec
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+deploy:
+  provider: heroku
+  api_key:
+    secure: dhtP3fELP28hRC0nSBxhHqOsSyW10RfNiXX5wDh5IIgK9YZ27zwp6YiD3de675q4G0nkkUtw0seXLDWaJg3YLZQgkBpQUzH6Etbh4koVrre6Tqct1KIFnUGExg4mTa64UYL4KhfYyKrfQSblEEYy0zMD4bNRVFzmfVsEg3E5UmRNOHucIZiV68B91S++sy6AFOtlNG7cNcFo94B+5cGCdYb6bkZO/DFIEP41u1ptk1mr1YoTh3dEEzQ03Wt/ipeTlcV40mOSchm2CpoGWPocrYYgg9CF8LqIFO8KrpQyzAjgTtlRMl+SsjvKTWwKpprXP/uXHgeE5IkF3LTiS7Oot1c0ibsghcfL652ZSuP9jVujDURl5zOU4o4CzTTOtk5qVlAG02noVCdr2aLMfWv7xOiZ6dUprrXFwJIrvptEDSXaRYWbQmQerkZge0jzpdwVkWYbaIRNsctEiAJW/3HkSUtWarv/WhlFIVoIzuNqC8DZ+7jrUOosIiUrN7htvijjnwg3t1YoGr17LPR5eedYzKDbG8Xa1KwGjij6QSh9id8HP4tGhFtqOcMjXJgkdFI2xjJbV/WGeiSsXn1yWS06MzNzVapPf+M0LFZto2HTbhbGxzKAqdfEhSJl+6JIER79gceg4YZtavbhYLd2y0c4Dnz7zvQBacu6BoUiDSURHY0=
+  app: real-prairie-delights
+  on:
+    repo: tflem/real-prairie-delights
+    branch: master
+  run:
+    - rake db:migrate

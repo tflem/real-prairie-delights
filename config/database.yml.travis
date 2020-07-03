@@ -1,0 +1,3 @@
+test:
+  adapter: postgresql
+  database: cc_balance_tracker_test
