@@ -33,7 +33,8 @@ install:
   - npm i -g yarn
   - yarn
 script:
-  - travis_await bundle exec rails webpacker:install
+  - yarn add @fullhuman/postcss-purgecss
+  - travis_wait bundle exec rails webpacker:install
   - bundle exec rails webpacker:compile  
   - bundle exec rspec
 after_script:
