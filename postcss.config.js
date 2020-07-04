@@ -1,4 +1,4 @@
-module.exports = {
+let environment = {
   plugins: [
     require('tailwindcss')('./app/javascript/stylesheets/tailwind.config.js'),
     require('postcss-import'),
@@ -26,3 +26,5 @@ if (process.env.RAILS_ENV === 'production') {
     })
   )
 }
+
+module.exports = environment;

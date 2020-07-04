@@ -31,7 +31,7 @@ install:
   - nvm install node
   - node -v
   - npm i -g yarn
-  - yarn
+  - yarn run build
 script:
   - bundle exec rails webpacker:install
   - bundle exec rails webpacker:compile
