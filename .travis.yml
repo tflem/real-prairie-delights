@@ -20,7 +20,6 @@ before_install:
   - sudo apt-get update  
 before_script:  
   - cp config/database.yml.travis config/database.yml
-  - cp postcss.config.js
   - bundle exec rake db:create
   - bundle exec rake db:migrate
   - RAILS_ENV=test bundle exec rake db:create
@@ -36,6 +35,7 @@ install:
 script:
   - bundle exec rails webpacker:install
   - bundle exec rails webpacker:compile
+  - yarn add @fullhuman/postcss-purgecss
   - bundle exec rspec
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
