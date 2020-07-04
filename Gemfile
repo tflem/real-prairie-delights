@@ -27,7 +27,7 @@ end
 
 group :test do
   gem 'capybara', '~> 3.33'
-  gem 'simplecov', '~> 0.18.5', require: false
+  gem 'simplecov', '0.17.1', require: false
   gem 'simplecov-console', require: false
 end
 
