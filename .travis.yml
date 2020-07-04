@@ -33,7 +33,6 @@ install:
   - npm i -g yarn
   - yarn
 script:
-  - yarn add @fullhuman/postcss-purgecss
   - bundle exec rails webpacker:install
   - bundle exec rails webpacker:compile  
   - bundle exec rspec
