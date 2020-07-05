@@ -3,7 +3,15 @@
 @import "tailwindcss/components";
 
 .field {
-  @apply border py-2 px-3;
+  @apply .border .py-2 .px-3 .text-gray-700
+}
+
+.field-group {
+	@apply .flex .flex-col .mb-4;
+}
+
+.field-label {
+	@apply .mb-2 .font-bold .text-lg;
 }
 
 @import "tailwindcss/utilities";

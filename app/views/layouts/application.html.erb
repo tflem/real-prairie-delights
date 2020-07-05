@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Real Prairie Delights</title>
+    <title>
+      <% if content_for?(:title)%>
+        <%= yield(:title) %>
+      <% else %>
+        Real Prairie Delights
+      <% end %>
+    </title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,7 +16,7 @@
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="bg-teal-lighter">
+  <body>
     <% flash.each do |key, message| %>
       <div><%= message %></div>
     <% end %>
