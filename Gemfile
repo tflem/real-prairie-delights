@@ -17,6 +17,7 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.9'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
+  gem 'rubocop', '~> 0.85.1', require: false
 end
 
 group :development do
