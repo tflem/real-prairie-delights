@@ -1,24 +1,28 @@
-<h1>New Recipe</h1>
-<%= form_for(@recipe) do |f| %>
-  <p>
-    <%= f.label :recipe_name, "Recipe Name" %><br>
-    <%= f.text_field :recipe_name %>
-  </p>
+<div class="flex items-center h-screen w-full bg-teal-700">
+	<div class="w-full bg-white rounded shadow-lg p-8 m-4 md:max-w-sm md:mx-auto">
+		<h1 class="block w-full text-center text-3xl mb-6 font-bold">New Recipe</h1>		
+		<%= form_for(@recipe) do |f| %>
+		  <div class="flex flex-col mb-4">
+		    <%= f.label :recipe_name, "Recipe Name", class: "mb-2 font-bold text-lg text-grey" %>
+		    <%= f.text_field :recipe_name, class: "field", placeholder: "Pancakes" %>
+		  </div>
 
-  <p>
-    <%= f.label :serving_size, "Serving Size" %><br>
-    <%= f.text_field :serving_size %>
-  </p>
+		  <div class="flex flex-col mb-4">
+		    <%= f.label :serving_size, "Serving Size", class: "mb-2 font-bold text-lg text-grey" %>
+		    <%= f.text_field :serving_size, class: "field", placeholder: "4" %>
+		  </div>
 
-  <p>
-    <%= f.label :ingredients, "Ingredients" %><br>
-    <%= f.text_area :ingredients %>
-  </p>
+		  <div class="flex flex-col mb-4">
+		    <%= f.label :ingredients, "Ingredients", class: "mb-2 font-bold text-lg text-grey" %>
+		    <%= f.text_area :ingredients, class: "field", placeholder: "Eggs, Flour, etc." %>
+		  </div>
 
-  <p>
-    <%= f.label :directions, "Directions" %><br>
-    <%= f.text_area :directions %>
-  </p>
+		  <div class="flex flex-col mb-4">
+		    <%= f.label :directions, "Directions", class: "mb-2 font-bold text-lg text-grey" %>
+		    <%= f.text_area :directions, class: "field", placeholder: "Mix well, fry up, and enjoy!" %>
+		  </div>
 
-  <%= f.submit %>
-<% end %>
+		  <%= f.submit label: "Create Recipe", class: "bg-teal-500 hover:bg-teal-700 text-white font-bold py-4 px-8 rounded" %>
+		<% end %>
+	</div>
+</div>

@@ -1,7 +1,9 @@
 @import "tailwindcss/base";
+
 @import "tailwindcss/components";
 
-// Add custom components/styles here
+.field {
+  @apply border py-2 px-3;
+}
 
 @import "tailwindcss/utilities";
-
