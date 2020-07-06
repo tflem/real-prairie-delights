@@ -14,7 +14,8 @@ class RecipesController < ApplicationController
       flash[:notice] = 'Your recipe has been created.'
       redirect_to @recipe
     else
-      # notta yet
+    	flash.now[:alert] = 'Your recipe has not been created.'
+    	render 'new'
     end
   end
 

@@ -1,3 +1,16 @@
+<% if @recipe.errors.any? %>
+ <div id="error_info">
+   <h2><%= pluralize(@recipe.errors.count, "error") %>
+   prohibited this recipe from being saved:</h2>
+
+   <ul>
+     <% @recipe.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+     <% end %>
+   </ul>
+ </div>
+<% end %>
+
 <div class="flex items-center h-screen w-full bg-teal-700">
 	<div class="w-full bg-white rounded shadow-lg p-8 m-4 md:max-w-sm md:mx-auto">
 		<h1 class="block w-full text-center text-3xl mb-6 font-bold">New Recipe</h1>		

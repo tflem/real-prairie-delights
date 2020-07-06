@@ -3,11 +3,13 @@
 require 'rails_helper'
 
 RSpec.feature 'Users can create recipes' do
-  scenario 'with valid attributes' do
-    visit '/'
+	before do
+		visit '/'
 
     click_link 'New Recipe'
+  end
 
+  scenario 'with valid attributes' do
     fill_in 'Recipe Name', with: 'Pancakes'
     fill_in 'Serving Size', with: 10
     fill_in 'Ingredients', with: 'Two cups of flour'
@@ -21,5 +23,12 @@ RSpec.feature 'Users can create recipes' do
 
     title = "Pancakes - Recipes - Real Prairie Delights"
     expect(page).to have_title title
+  end
+
+  scenario 'with valid attributes' do  	
+  	click_button 'Create Recipe'
+
+  	expect(page).to have_content 'Your recipe has not been created.'
+  	expect(page).to have_content 'Recipe name can\'t be blank'
   end
 end
