@@ -1,5 +1,7 @@
 module.exports = {
-  purge: [],
+  purge: [
+    './app/views/**/*.html.erb'
+  ],
   target: 'relaxed',
   prefix: '',
   important: false,
