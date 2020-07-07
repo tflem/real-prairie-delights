@@ -2,6 +2,8 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
   // Specify the paths to all of the template files in your project
   content: [
     './app/views/**/*.html.erb'
+    './app/helpers/**/*.rb',
+    './app/javascript/**/*.js',
   ],
 
   // Include any special characters you're using in this regular expression
