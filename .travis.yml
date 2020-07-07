@@ -37,7 +37,7 @@ script:
   - travis_wait bundle exec rails webpacker:install
   - bundle exec rails webpacker:compile  
   - bundle exec rspec
-after_script:
+after_script:  
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 deploy:
   provider: heroku
@@ -48,4 +48,4 @@ deploy:
     repo: tflem/real-prairie-delights
     branch: creating-recipes
   run:
-    - rake db:migrate
+    - heroku run rails db:migrate

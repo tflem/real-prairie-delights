@@ -2,4 +2,4 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 
-import "stylesheets/application.scss"
+import "../stylesheets/application.scss"
