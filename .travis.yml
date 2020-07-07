@@ -46,6 +46,6 @@ deploy:
   app: real-prairie-delights
   on:
     repo: tflem/real-prairie-delights
-    branch: master
+    branch: creating-recipes
   run:
     - rake db:migrate
