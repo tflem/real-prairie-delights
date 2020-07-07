@@ -1,6 +1,9 @@
 inherit_from: .rubocop_todo.yml
 
+Documentation:
+  Enabled: false
+
 Metrics/MethodLength:
-  Max: 7
+  Max: 8
   Exclude:
     - 'bin/bundle'

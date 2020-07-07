@@ -2,10 +2,9 @@
 
 module ApplicationHelper
   def title(*items)
-    unless items.empty?
-      content_for :title do
-        (items << "Real Prairie Delights").join(" - ")
-      end      
+    content_for :title do
+      (items << 'Real Prairie Delights').join(' - ')
     end
+    return content_for :title unless items.empty?
   end
 end
