@@ -1,6 +1,7 @@
+/* purgecss start ignore */
 @import "tailwindcss/base";
-
 @import "tailwindcss/components";
+/* purgecss end ignore */
 
 .field {
   @apply .border .py-2 .px-3 .text-gray-700
