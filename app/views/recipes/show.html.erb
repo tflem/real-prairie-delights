@@ -3,8 +3,8 @@
 <h2 class='text-4xl px-2 py-2 mb-2'><%= @recipe.recipe_name %></h2>
 
 <div class='p-10 flex flex-col justify-center max-w-auto rounded bg-teal-200'>
-  <div class='text-xs uppercase font-bold text-teal-500 mb-2'><%= 'Serving Size '%><%= @recipe.serving_size %></div>
-  <div class='md:text-2xl text-xl font-bold text-teal-700'>
+  <div class='text-sm uppercase font-bold text-teal-500 mb-2'><%= 'Serving Size '%><%= @recipe.serving_size %></div>
+  <div class='md:text-2xl text-2xl font-bold text-teal-700'>
     <ul>
       <% @recipe.ingredients.split(",").each do |item| %>      
         <li><%= item.titleize %></li>
@@ -12,5 +12,5 @@
     </ul>
     
    </div>
-  <div class='mt-4 text-teal-800'><%= @recipe.directions %></div>
+  <div class='mt-4 text-2xl text-teal-800'><%= @recipe.directions %></div>
 </div>
