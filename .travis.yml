@@ -1,51 +1,52 @@
 sudo: false
 language:
-  - ruby
+- ruby
 dist:
-  - xenial
+- xenial
 cache:
   bundler: true
   directories:
-    - node_modules
+  - node_modules
   yarn: true
 rvm:
-  - 2.6.5
+- 2.6.5
 services:
-  - postgresql
+- postgresql
 addons:
-  postgresql: "9.6"
+  postgresql: '9.6'
 notifications:
-  - false
+- false
 before_install:
-  - sudo apt-get update  
-before_script:  
-  - cp config/database.yml.travis config/database.yml
-  - bundle exec rake db:create
-  - bundle exec rake db:migrate
-  - RAILS_ENV=test bundle exec rake db:create
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
+- sudo apt-get update
+before_script:
+- cp config/database.yml.travis config/database.yml
+- bundle exec rake db:create
+- bundle exec rake db:migrate
+- RAILS_ENV=test bundle exec rake db:create
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+  > ./cc-test-reporter
+- chmod +x ./cc-test-reporter
+- "./cc-test-reporter before-build"
 install:
-  - bundle install
-  - nvm install node
-  - node -v
-  - npm i -g yarn
-  - yarn add @fullhuman/postcss-purgecss
-  - yarn
-script:  
-  - travis_wait bundle exec rails webpacker:install
-  - bundle exec rails webpacker:compile  
-  - bundle exec rspec
-after_script:  
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+- bundle install
+- nvm install node
+- node -v
+- npm i -g yarn
+- yarn add @fullhuman/postcss-purgecss
+- yarn
+script:
+- travis_wait bundle exec rails webpacker:install
+- bundle exec rails webpacker:compile
+- bundle exec rspec
+after_script:
+- "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
 deploy:
   provider: heroku
   api_key:
-    secure: dhtP3fELP28hRC0nSBxhHqOsSyW10RfNiXX5wDh5IIgK9YZ27zwp6YiD3de675q4G0nkkUtw0seXLDWaJg3YLZQgkBpQUzH6Etbh4koVrre6Tqct1KIFnUGExg4mTa64UYL4KhfYyKrfQSblEEYy0zMD4bNRVFzmfVsEg3E5UmRNOHucIZiV68B91S++sy6AFOtlNG7cNcFo94B+5cGCdYb6bkZO/DFIEP41u1ptk1mr1YoTh3dEEzQ03Wt/ipeTlcV40mOSchm2CpoGWPocrYYgg9CF8LqIFO8KrpQyzAjgTtlRMl+SsjvKTWwKpprXP/uXHgeE5IkF3LTiS7Oot1c0ibsghcfL652ZSuP9jVujDURl5zOU4o4CzTTOtk5qVlAG02noVCdr2aLMfWv7xOiZ6dUprrXFwJIrvptEDSXaRYWbQmQerkZge0jzpdwVkWYbaIRNsctEiAJW/3HkSUtWarv/WhlFIVoIzuNqC8DZ+7jrUOosIiUrN7htvijjnwg3t1YoGr17LPR5eedYzKDbG8Xa1KwGjij6QSh9id8HP4tGhFtqOcMjXJgkdFI2xjJbV/WGeiSsXn1yWS06MzNzVapPf+M0LFZto2HTbhbGxzKAqdfEhSJl+6JIER79gceg4YZtavbhYLd2y0c4Dnz7zvQBacu6BoUiDSURHY0=
+    secure: YWoJBaZXz68GUxWwOZmD3o5DRw/Sna4PnYup6eLTTZXBUdaI4Atx82vvCoDktlZGUNmWjrxCPhiR1RzD7kJ3zWP/XKKjLb13B9uSXCiNkdDIkDGG/iusPFrlhOfT1BLgrTdLPHDPTK0Ub213o87iMeUl2blgClg5/X2guJvRNIYQHZgxHttiekJ90U96AmA/ub479Fi7ZbENumIsf7ZZq1+oe5vSf24VcJn6bYKxR1yxtlg6GTCQcSkA4Obm2CxbWzgz75WVXtsxfQo8Vji0R/N6I+j3TxfjwJ3N04kNs0QTT0rtleEqfN29m92VHF++LuACdVxmtjQEbxMmpLkb20RFs0kIn+oaDou4QQ/aLc4PrpbIglQJKICxa0g+SD+giNi+/yXPVFP/IL4lTMdDTz3wNJs0deaxDhH/ovqPHLYxsvIMe6+zOKeb4GGxOaEKDK/H7z1Etwf9nCkJQgMDjgySBKcZwnVv61PDc1mIyWi/XlAibZn8+ILlucDpEEngIK1hGNgRQi6Hwm4LrOf0azr1UU4y1TWGSpu1u1MYdax0Ema1g2o8bwCQ3rHao9ZQh9wpj9lDS1J7eTqiMluzpTWOZDyooSl4ZJoX06K8Bs5+6W/gJUMbHNQK2J6IvOG+c0h/kYWbesNLOAEZpNUsjyqhqI7d0d6eNIpCpmGbxvo=
   app: real-prairie-delights
   on:
     repo: tflem/real-prairie-delights
     branch: editing-recipes
   run:
-    - heroku run rails db:migrate
+  - heroku run rails db:migrate
