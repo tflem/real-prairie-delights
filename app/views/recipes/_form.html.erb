@@ -1,0 +1,36 @@
+<%= form_for(recipe) do |f| %>
+  <% if recipe.errors.any? %>
+    <div id='error_info'>
+      <h2><%= pluralize(recipe.errors.count, 'error') %>
+          prohibited this recipe from being saved:</h2>
+
+      <ul>
+        <% recipe.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class='field-group'>
+	<%= f.label :recipe_name, 'Recipe Name', class: 'field-label' %>
+	<%= f.text_field :recipe_name, class: 'field', placeholder: 'Pancakes' %>
+</div>
+
+<div class='field-group'>
+  <%= f.label :serving_size, 'Serving Size', class: 'field-label' %>
+  <%= f.text_field :serving_size, class: 'field', placeholder: '4' %>
+</div>
+
+<div class='field-group'>
+  <%= f.label :ingredients, 'Ingredients', class: 'field-label' %>
+  <%= f.text_area :ingredients, class: 'field', placeholder: 'Eggs, Flour, etc.' %>
+</div>
+
+<div class='field-group'>
+  <%= f.label :directions, 'Directions', class: 'field-label' %>
+  <%= f.text_area :directions, class: 'field', placeholder: 'Mix well, fry up, and enjoy!' %>
+</div>
+
+  <%= f.submit label: 'Create Recipe', class: 'bg-teal-500 hover:bg-teal-700 text-white font-bold py-4 px-8 rounded' %>
+<% end %>
