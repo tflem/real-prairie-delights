@@ -47,6 +47,6 @@ deploy:
   app: real-prairie-delights
   on:
     repo: tflem/real-prairie-delights
-    branch: editing-recipes
+    branch: deleting-recipes
   run:
   - heroku run rails db:migrate
