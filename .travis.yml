@@ -47,6 +47,6 @@ deploy:
   app: real-prairie-delights
   on:
     repo: tflem/real-prairie-delights
-    branch: deleting-recipes
+    branch: handling-ar-rnf-exception
   run:
   - heroku run rails db:migrate
