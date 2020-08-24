@@ -39,12 +39,13 @@
     </div>
   </nav>
 
-  <body>    
+  <body class="flex flex col min-h-screen">
     <% flash.each do |key, message| %>
       <div class='bg-teal-100 border-t border-b border-teal-500 text-center text-teal-700 px-4 py-3' role='alert' <%= key %>>
         <%= message %>
       </div>
     <% end %>
     <%= yield %>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
