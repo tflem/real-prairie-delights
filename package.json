@@ -8,6 +8,7 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.2.2",
     "lodash": "^4.17.19",
+    "node-forge": "^0.10.0",
     "tailwindcss": "^1.4.6",
     "turbolinks": "^5.2.0"
   },
