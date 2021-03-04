@@ -4,7 +4,7 @@
 
 # Real Prairie Delights
 
-> This a recipe tracking application, which features the following:
+> This a recipe-tracking application developed with the following tools:
 
 * Ruby 2.6.5
 * Continuous Integration/Deployment: Travis CI
