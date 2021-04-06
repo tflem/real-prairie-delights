@@ -12,7 +12,7 @@
 * HTML5 and Sass
 * PostgreSQL 13
 * Testing Framework: RSpec 4.0.2
-* Tailwind CSS
+* Tailwind CSS: 1.8.10
 
 ## Setup
 
