@@ -8,11 +8,7 @@ ruby '2.6.5'
 gem 'jbuilder', '~> 2.7'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
-<<<<<<< HEAD
-gem 'rails', '~> 6.1', '>= 6.0.3.5'
-=======
-gem 'rails', '~> 6.1.3.1'
->>>>>>> 39503921e33fadca8e714fdf9432fc19d46b9afe
+gem 'rails', '~> 6.1', '>= 6.1.3.2'
 gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
