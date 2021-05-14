@@ -16,7 +16,7 @@
     "lodash": "^4.17.20",
     "node-forge": "^0.10.0",
     "node-gyp": "^8.0.0",
-    "postcss": "^7",
+    "postcss": "^8.2.10",
     "ssri": "^8.0.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "turbolinks": "^5.2.0"
