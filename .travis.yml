@@ -47,6 +47,6 @@ deploy:
   app: real-prairie-delights
   on:
     repo: tflem/real-prairie-delights
-    branch: tweaking-the-ui
+    branch: main
   run:
   - heroku run rails db:migrate
