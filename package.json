@@ -2,6 +2,7 @@
   "name": "real_prairie_delights",
   "private": true,
   "dependencies": {
+    "@babel/preset-env": "^7.14.2",
     "@fortawesome/fontawesome-free": "^5.14.0",
     "@fullhuman/postcss-purgecss": "^3.0.0",
     "@rails/activestorage": "^6.0.0",
